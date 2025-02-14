@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title> Khalid رسالةخاصة</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #FFF3F3 0%, #FFE9E9 50%, #FFD7D7 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', 'Cairo', sans-serif;
+            direction: rtl;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.2);
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background: #FFB6C1;
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        .heart {
+            color: #FFB6C1;
+            font-size: 80px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .heart:hover {
+            transform: scale(1.1) rotate(-10deg);
+        }
+
+        h1 {
+            color: #7A4B5B;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .message {
+            color: #8C6A7D;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin: 25px 0;
+        }
+
+        button {
+            background: #FFB6C1;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            background: #FF9EAD;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 158, 173, 0.4);
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .floral-border {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+
+        .music-player {
+            margin-top: 30px;
+            padding: 15px;
+            background: #FFF8F8;
+            border-radius: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="floral-border">🌸</div>
+        
+        <div class="heart" onclick="animateHeart(this)">E❤️K</div>
+        
+        <h1>كل عام وأنتِ نبض قلبي 💖</h1>
+        
+        <div class="message">
+            <p>في عيد الحب.. أريدكِ أن تعرفي أنكِ:</p>
+            <p>🌹 النعمة التي أُشكر عليها كل يوم</p>
+            <p>🌙 هدوء ليلي ودفء أيامي</p>
+            <p>🎁 أجمل هدية من القدر</p>
+        </div>
+
+        <button onclick="showMessage()">إفتحي رسالتي 🕊️</button>
+        
+        <div id="secretMessage" class="hidden-message">
+            <h3 style="color: #7A4B5B; margin-bottom:15px;"> سر سعادتي الحقيقي...منذ أول حديث دار ، بيننا ادركت بأني لن أنجو منك ابدأ </h3>
+            <p style="line-height:1.7;">كل تفصيلة فيكِ تذكرني كم أنا محظوظ<br>
+            شغفكِ، طيبتكِ، محبتك،روحك 💞<br>
+            أعدكِ بأن أكون لكِ كما تستحقين دائمًا</p>
+        </div>
+    </div>
+
+    <script>
+        function animateHeart(heart) {
+            heart.style.transform = 'scale(1.3) rotate(-15deg)';
+            setTimeout(() => {
+                heart.style.transform = 'scale(1) rotate(0)';
+            }, 300);
+        }
+
+        function showMessage() {
+            const message = document.getElementById('secretMessage');
+            message.style.display = 'block';
+            
+            // Add gentle confetti
+            for(let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'absolute';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animation = `confettiFall ${Math.random() * 3 + 2}s linear`;
+                confetti.innerHTML = ['🌸', '💮', '🌺', '🌷'][Math.floor(Math.random() * 4)];
+                confetti.style.fontSize = Math.random() * 20 + 15 + 'px';
+                confetti.style.opacity = 0;
+                document.body.appendChild(confetti);
+                
+                // Fade in/out effect
+                setTimeout(() => confetti.style.opacity = 0.7, 100);
+                setTimeout(() => confetti.remove(), 3000);
+            }
+            
+            // Play subtle sound
+            const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2867/2867-preview.mp3');
+            audio.play();
+        }
+
+        // Add floral pattern
+        const floralPatterns = ['🌸', '🌺', '🌼', '💮', '🌷'];
+        const floralBorder = document.querySelector('.floral-border');
+        for(let i = 0; i < 50; i++) {
+            const span = document.createElement('span');
+            span.style.position = 'absolute';
+            span.style.left = Math.random() * 100 + '%';
+            span.style.top = Math.random() * 100 + '%';
+            span.style.transform = `rotate(${Math.random() * 360}deg)`;
+            span.style.fontSize = Math.random() * 20 + 10 + 'px';
+            span.textContent = floralPatterns[Math.floor(Math.random() * floralPatterns.length)];
+            floralBorder.appendChild(span);
+        }
+    </script>
+
+    <style>
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</body>
+</html>
