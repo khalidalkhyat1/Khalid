@@ -28,6 +28,9 @@
 - 🟡 **Interactive Calculator** – Built with Python & Tkinter.  
 
 ---
+## ⏱️ Coding Activity (powered by WakaTime)
+
+![Khalid's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=khaildalkhiat77&layout=compact&theme=radical)
 
 ## 📫 Connect with Me
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)  
